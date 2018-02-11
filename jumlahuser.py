@@ -17,7 +17,7 @@ import timeit
 
 
 def method1():
-    rows = list(csv.reader(open('DATASET1.csv', 'r'), delimiter=','))
+    rows = list(csv.reader(open('D:/THESIS/PENELITIAN/Sistem Rekomendasi/User-Based-CF/Dataset/DATASET1.csv', 'r'), delimiter=','))
     cols = zip(*rows)
     unik = set(cols[0])
 
@@ -31,7 +31,7 @@ def method1():
     return indexed
 
 def method2():
-    rows = list(csv.reader(open('DATASET1.csv', 'r'), delimiter=','))
+    rows = list(csv.reader(open('D:/THESIS/PENELITIAN/Sistem Rekomendasi/User-Based-CF/Dataset/DATASET1.csv', 'r'), delimiter=','))
     cols = zip(*rows)
     unik = set(cols[4])
 
@@ -69,8 +69,12 @@ if __name__ == '__main__':
 
     results = method1()    
     print 'indexed:'
-    pprint(dict(results))
+    # pprint(dict(results))
     count=len(results)
+
+    output = open("jumlah user.csv","a")
+    output.write(str('indexed:')+'\n')
+    output.close()
 
     print '-' * 80
 
@@ -83,6 +87,7 @@ if __name__ == '__main__':
 
     print count
     print cou
+    
 
     # results = dict(method3())
     # print 'indexed:'

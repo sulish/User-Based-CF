@@ -30,6 +30,10 @@ def user_list(data_user_loc,index):
 def info_dataset(data_all,data_user,data_location):
 	print 'Jumlah record dataset\t: %d' % (len(data_all))
 	print 'Jumlah user          \t: %d' % (len(data_user))
+	print data_user
+	output = open("datauser.csv","a")
+	output.write(str(data_user))
+	output.close()
 	print 'Jumlah lokasi        \t: %d' % (len(data_location))
 	
 def matrix_maker(data_user_loc,data_user,data_location):
@@ -51,7 +55,7 @@ def tampil_matrix(matrix):
 	for m in matrix:
 		print m
 	
-file_name_input = "trainA.csv" #input nama file yang akan diformat
+file_name_input = "D:/THESIS/PENELITIAN/DATASET/Gowalla/trainA.csv" #input nama file yang akan diformat
 input_delimiter = ","
 data_all = baca_csv(file_name_input,input_delimiter)
 data_user_loc = user_loc_extractor(data_all,0,1)
@@ -61,9 +65,9 @@ data_location = user_list(data_user_loc,1)
 info_dataset(data_all,data_user,data_location)
 
 
-matrix = matrix_maker(data_user_loc,data_user,data_location)  #Ini matrix yang dihasilkan
-tampil_matrix(matrix)
+# matrix = matrix_maker(data_user_loc,data_user,data_location)  #Ini matrix yang dihasilkan
+# tampil_matrix(matrix)
 
-output = open("hasil.csv","a")
-output.write(str(matrix))
-output.close()
+# output = open("hasil.csv","a")
+# output.write(str(matrix))
+# output.close()
